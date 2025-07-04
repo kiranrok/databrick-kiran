@@ -1,0 +1,752 @@
+{
+  "datasets": [
+    {
+      "name": "5656dd26",
+      "displayName": "User Data from saas.kiran_bronze",
+      "queryLines": [
+        "select * from saas.kiran_bronze.users"
+      ]
+    },
+    {
+      "name": "3d90f1b7",
+      "displayName": "ad_clicks",
+      "queryLines": [
+        "SELECT * FROM saas.kiran_bronze.ad_clicks"
+      ]
+    },
+    {
+      "name": "fd1917fe",
+      "displayName": "bookings",
+      "queryLines": [
+        "SELECT * FROM saas.kiran_bronze.bookings"
+      ]
+    },
+    {
+      "name": "cc8c88c9",
+      "displayName": "campaigns",
+      "queryLines": [
+        "SELECT * FROM saas.kiran_bronze.campaigns"
+      ]
+    },
+    {
+      "name": "e6c5e73d",
+      "displayName": "leads",
+      "queryLines": [
+        "SELECT * FROM saas.kiran_bronze.leads"
+      ],
+      "catalog": "saas",
+      "schema": "default"
+    },
+    {
+      "name": "f58f9bbd",
+      "displayName": "users",
+      "queryLines": [
+        "SELECT * FROM saas.kiran_bronze.users"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "7a6ad300",
+      "displayName": "Untitled page",
+      "layout": [
+        {
+          "widget": {
+            "name": "a4af3b09",
+            "multilineTextboxSpec": {
+              "lines": [
+                "Saas Dashboard"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "ce1f3b13",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3d90f1b7",
+                  "fields": [
+                    {
+                      "name": "sum(ad_cost_usd)",
+                      "expression": "SUM(`ad_cost_usd`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(ad_cost_usd)",
+                  "displayName": "Sum of ad_cost_usd"
+                }
+              },
+              "frame": {
+                "title": "Total Ad Cost",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "0d8fd9e4",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "f58f9bbd",
+                  "fields": [
+                    {
+                      "name": "user_id",
+                      "expression": "`user_id`"
+                    },
+                    {
+                      "name": "location",
+                      "expression": "`location`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "user_id",
+                    "title": "user_id",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "displayName": "user_id"
+                  },
+                  {
+                    "fieldName": "location",
+                    "title": "location",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "displayName": "location"
+                  }
+                ]
+              },
+              "invisibleColumns": [
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "name",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 100001,
+                  "title": "name",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "numberFormat": "0",
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "age",
+                  "type": "integer",
+                  "displayAs": "number",
+                  "order": 100002,
+                  "title": "age",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "gender",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 100003,
+                  "title": "gender",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "dateTimeFormat": "YYYY-MM-DD HH:mm:ss.SSS",
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "first_seen",
+                  "type": "datetime",
+                  "displayAs": "datetime",
+                  "order": 100005,
+                  "title": "first_seen",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "_rescued_data",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 100006,
+                  "title": "_rescued_data",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                }
+              ],
+              "allowHTMLByDefault": false,
+              "itemsPerPage": 25,
+              "paginationSize": "default",
+              "condensed": true,
+              "withRowNumber": false,
+              "frame": {
+                "title": "Table of user data",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "c2ecf4c2",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "fd1917fe",
+                  "fields": [
+                    {
+                      "name": "car_model",
+                      "expression": "`car_model`"
+                    },
+                    {
+                      "name": "sum(booking_value_usd)",
+                      "expression": "SUM(`booking_value_usd`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "car_model",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "car_model"
+                },
+                "y": {
+                  "fieldName": "sum(booking_value_usd)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of booking_value_usd"
+                }
+              },
+              "frame": {
+                "title": "Bookings by Car Model\n\n",
+                "showTitle": true
+              },
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 6,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "3c7671c2",
+            "queries": [
+              {
+                "name": "dashboards/01f0589716fc11c282b4178a55604715/datasets/01f0589764261fd2a7b70c5537eed0ad_user_id",
+                "query": {
+                  "datasetName": "f58f9bbd",
+                  "fields": [
+                    {
+                      "name": "user_id",
+                      "expression": "`user_id`"
+                    },
+                    {
+                      "name": "user_id_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "user_id",
+                    "displayName": "user_id",
+                    "queryName": "dashboards/01f0589716fc11c282b4178a55604715/datasets/01f0589764261fd2a7b70c5537eed0ad_user_id"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "7f422772",
+            "queries": [
+              {
+                "name": "dashboards/01f0589716fc11c282b4178a55604715/datasets/01f0589762ac1d448e5a6c82101f3eaf_car_model",
+                "query": {
+                  "datasetName": "fd1917fe",
+                  "fields": [
+                    {
+                      "name": "car_model",
+                      "expression": "`car_model`"
+                    },
+                    {
+                      "name": "car_model_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "car_model",
+                    "displayName": "car_model",
+                    "queryName": "dashboards/01f0589716fc11c282b4178a55604715/datasets/01f0589762ac1d448e5a6c82101f3eaf_car_model"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 1,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "ec293b6e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "fd1917fe",
+                  "fields": [
+                    {
+                      "name": "sum(booking_value_usd)",
+                      "expression": "SUM(`booking_value_usd`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(booking_value_usd)",
+                  "displayName": "Sum of booking_value_usd"
+                }
+              },
+              "frame": {
+                "title": "Total Booking Value",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 2,
+            "width": 1,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "32c0553c",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "fd1917fe",
+                  "fields": [
+                    {
+                      "name": "booking_id",
+                      "expression": "`booking_id`"
+                    },
+                    {
+                      "name": "lead_id",
+                      "expression": "`lead_id`"
+                    },
+                    {
+                      "name": "booking_date",
+                      "expression": "`booking_date`"
+                    },
+                    {
+                      "name": "car_model",
+                      "expression": "`car_model`"
+                    },
+                    {
+                      "name": "booking_value_usd",
+                      "expression": "`booking_value_usd`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "booking_id",
+                    "title": "booking_id",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "displayName": "booking_id"
+                  },
+                  {
+                    "fieldName": "lead_id",
+                    "title": "lead_id",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "displayName": "lead_id"
+                  },
+                  {
+                    "fieldName": "booking_date",
+                    "title": "booking_date",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "type": "date",
+                    "displayAs": "datetime",
+                    "visible": true,
+                    "displayName": "booking_date"
+                  },
+                  {
+                    "fieldName": "car_model",
+                    "title": "car_model",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "displayName": "car_model"
+                  },
+                  {
+                    "fieldName": "booking_value_usd",
+                    "title": "booking_value_usd",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "type": "integer",
+                    "displayAs": "number",
+                    "visible": true,
+                    "displayName": "booking_value_usd"
+                  }
+                ]
+              },
+              "invisibleColumns": [
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "_rescued_data",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 100005,
+                  "title": "_rescued_data",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                }
+              ],
+              "allowHTMLByDefault": false,
+              "itemsPerPage": 25,
+              "paginationSize": "default",
+              "condensed": true,
+              "withRowNumber": false,
+              "frame": {
+                "title": "Table of campaign data",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 2,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "1e27c1c4",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e6c5e73d",
+                  "fields": [
+                    {
+                      "name": "count(lead_id)",
+                      "expression": "COUNT(`lead_id`)"
+                    },
+                    {
+                      "name": "user_id",
+                      "expression": "`user_id`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "count(lead_id)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Count of lead_id"
+                },
+                "color": {
+                  "fieldName": "user_id",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "user_id"
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "frame": {
+                "showDescription": false,
+                "title": "Count of Records",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 2,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
